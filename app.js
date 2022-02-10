@@ -21,7 +21,7 @@ function upload_to_db(img_location) {
     var date = document.querySelector("#date").value;
  
     var Item = {
-        'name': article_id,
+        'name': name,
         'date': date,
         'img_source': img_location,
     }
