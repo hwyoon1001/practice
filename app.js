@@ -33,7 +33,6 @@ function upload_to_db(img_location) {
         method: "POST",
         headers: {
             'Accept': 'application/json',
-            'Access-Control-Allow-Origin' : '*',
         },
         body: JSON.stringify({
             "TableName": "board-test",
