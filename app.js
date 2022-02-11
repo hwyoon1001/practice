@@ -37,7 +37,7 @@ function upload_to_db(img_location) {
             'Accept': 'application/json'
         },
         body: JSON.stringify({
-            "TableName": "simple_board",
+            "TableName": "board-test",
             Item
         })
     }).then(resp => console.log(resp))
