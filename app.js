@@ -71,7 +71,7 @@
               /* Append style to the head element */ 
               document.getElementsByTagName("head")[0].appendChild(css); 
           }
-          var elem = document.getElementById('articles');
+          var elem = document.getElementById('name');
             /* API 게이트웨이로 매물리스트 정보 가져오는 함수 */ 
             const URL = "https://l9biqyi3wk.execute-api.ap-northeast-2.amazonaws.com/stage/board" ;
 
@@ -97,12 +97,12 @@
       function upload_to_db(img_location) {
         var name = document.querySelector("#name").value;
         var title = document.querySelector("#title").value;
-     Item = {
-          'name': name,
-          'title': title,
-          'img_source': img_location,
- 
-     }
+       Item = {
+        'name': name,
+        'title': title,
+        'img_source': img_location,
+   
+       }
 
     post()
     }
