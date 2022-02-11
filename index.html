@@ -79,6 +79,9 @@
           var elem = document.getElementById('name');
             /* API 게이트웨이로 매물리스트 정보 가져오는 함수 */ 
             const URL = "https://l9biqyi3wk.execute-api.ap-northeast-2.amazonaws.com/stage/board" ;
+
+            
+            
               function get() {
                 fetch(URL, {
                     headers: {
@@ -90,28 +93,34 @@
               }
               
               function upload_to_db(img_location) {
-                   var name = document.querySelector("#name").value;
-                    var title = document.querySelector("#title").value;
+              var name = document.querySelector("#name").value;
+              var title = document.querySelector("#title").value;
+              
               var Item = {
                     'name': name,
                     'title': title,
                     'img_source': img_location,
                 }
                 
-
-              fetch(URL, {
-                  method: "POST",
-                  headers: {
-                    'Accept': 'application/json',
-                  },
-                  body: JSON.stringify({
-                    "TableName": "board-test",
-                    Item
-                  })
-                }).then(resp => console.log(resp))
-                .catch(err => console.log(err))
+                post(Item)
+                
                 
               }
+       function post(var Item) {
+      fetch(API_URL, {
+          method: "POST",
+          headers: {
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify({
+            "TableName": "board-test",
+            Item
+          })
+        }).then(resp => console.log(resp))
+        .catch(err => console.log(err))
+    }
+              
+              
 
             
             function submitToAPI(e){
