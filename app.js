@@ -31,17 +31,6 @@ function upload_to_db(img_location) {
  
     const URL = "https://l9biqyi3wk.execute-api.ap-northeast-2.amazonaws.com/stage/board";
  
-    fetch(URL, {
-        method: "POST",
-        headers: {
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-            "TableName": "board-test",
-            Item
-        })
-    }).then(resp => console.log(resp))
-        .catch(err => console.log(err))
 }
  
 function add_article_with_photo(albumName) {
