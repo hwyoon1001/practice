@@ -18,7 +18,8 @@
 
                     <th>EEG</th>
                     <td><input type="file" id="url" name="filename"></td>
-                  </tr>                    <tr>
+                  </tr>                    
+                  <tr>
                 <td colspan="3" style="text-align: center;">
                   <input type="button" value="등록" onClick="post()" />
                   <input type="reset" value="취소">
@@ -41,9 +42,9 @@
         .catch(err => console.error(err));
     }
     const Item = {
-      "name":"4",
+      "name":name,
       "data":"2022",
-      "Url":"s3://nmlt201021/images/Data_Original_P01V01.csv"
+      "Url":url
     }
     function post() {
       fetch(API_URL, {
