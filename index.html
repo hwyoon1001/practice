@@ -6,8 +6,28 @@
 </head>
 
 <body>
-  <input type="button" value="GET" onClick="get()" />
-  <input type="button" value="POST" onClick="post()" />
+    <div style="text-align: center;"><h1>글 등록 페이지</h1></div>
+ 
+        <form name="article_add_form" method="POST">
+            <table width="940" style="padding:5px 0 5px 0; ">
+               <tr height="2"><td colspan="2"></td></tr>
+               <tr>
+                  <th>name</th>
+                  <td><input type="text" id="name" required></td>
+               </tr>             
+
+                    <th>EEG</th>
+                    <td><input type="file" id="url" name="filename"></td>
+                  </tr>                    <tr>
+                <td colspan="3" style="text-align: center;">
+                  <input type="button" value="등록" onClick="post()" />
+                  <input type="reset" value="취소">
+               </td>
+                    
+                    </table>
+                   </form>
+ 
+        </div>
   <script>
     const API_URL = 'https://l9biqyi3wk.execute-api.ap-northeast-2.amazonaws.com/stage/board';
 
