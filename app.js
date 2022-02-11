@@ -16,8 +16,6 @@ var s3 = new AWS.S3({
   }
 });
 
-const URL = "https://l9biqyi3wk.execute-api.ap-northeast-2.amazonaws.com/stage/board";
-
  
 function add_article_with_photo(albumName) {
     var files = document.getElementById("article_image").files;
