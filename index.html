@@ -93,7 +93,7 @@
           }
               
         
-        const Item = {
+        var Item = {
               'name': "",
               'title': "",
               'img_source': "",
@@ -102,9 +102,12 @@
       function upload_to_db(img_location) {
         var name = document.querySelector("#name").value;
         var title = document.querySelector("#title").value;
-     Item.name = name;
-     Item.title = title;
-     Item.img_source = img_location;
+     Item = {
+          'name': name,
+          'title': title,
+          'img_source': img_location,
+ 
+     }
 
     post()
     }
