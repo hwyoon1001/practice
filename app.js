@@ -17,12 +17,12 @@ var s3 = new AWS.S3({
 });
 
 function upload_to_db(img_location) {
-    var article_id = document.querySelector("#name").value;
+    var name = document.querySelector("#name").value;
     var article_title = document.querySelector("#title").value;
     var article_content = document.querySelector("#content").value;
  
     var Item = {
-        'article_id': article_id,
+        'name': name,
         'title': article_title,
         'content': article_content,
         'img_source': img_location,
