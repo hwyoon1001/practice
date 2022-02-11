@@ -16,22 +16,8 @@ var s3 = new AWS.S3({
   }
 });
 
-function upload_to_db(img_location) {
-    var name = document.querySelector("#name").value;
-    var article_title = document.querySelector("#title").value;
-    var article_content = document.querySelector("#content").value;
- 
-    var Item = {
-        'name': name,
-        'title': article_title,
-        'content': article_content,
-        'img_source': img_location,
-    }
-    console.log(Item);
- 
-    const URL = "https://l9biqyi3wk.execute-api.ap-northeast-2.amazonaws.com/stage/board";
- 
-}
+const URL = "https://l9biqyi3wk.execute-api.ap-northeast-2.amazonaws.com/stage/board";
+
  
 function add_article_with_photo(albumName) {
     var files = document.getElementById("article_image").files;
