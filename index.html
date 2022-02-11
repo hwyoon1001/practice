@@ -7,7 +7,7 @@
         </style>
             <!--켜지면 get() 함수를 실행함.  -->
             <body onLoad="get()">
-                <div id="name">
+                <div id="articles">
             
                 </div>
 
@@ -97,12 +97,12 @@
       function upload_to_db(img_location) {
         var name = document.querySelector("#name").value;
         var title = document.querySelector("#title").value;
-     Item = {
-          'name': name,
-          'title': title,
-          'img_source': img_location,
- 
-     }
+       Item = {
+        'name': name,
+        'title': title,
+        'img_source': img_location,
+   
+       }
 
     post()
     }
