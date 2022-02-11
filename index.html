@@ -42,7 +42,7 @@
             /* API 게이트웨이로 매물리스트 정보 가져오는 함수 */ 
             const URL = "https://l9biqyi3wk.execute-api.ap-northeast-2.amazonaws.com/stage/board" ;
               function get() {
-                fetch(API_URL, {
+                fetch(URL, {
                     headers: {
                       'Accept': 'application/json'
                     }
@@ -52,7 +52,7 @@
               }
               
             function post() {
-                  fetch(API_URL, {
+                  fetch(URL, {
                       method: "POST",
                       headers: {
                         'Accept': 'application/json',
