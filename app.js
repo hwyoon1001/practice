@@ -17,12 +17,14 @@ var s3 = new AWS.S3({
 });
 
 function upload_to_db(img_location) {
-    var name = document.querySelector("#name").value;
-    var date = document.querySelector("#date").value;
+    var article_id = document.querySelector("#id").value;
+    var article_title = document.querySelector("#title").value;
+    var article_content = document.querySelector("#content").value;
  
     var Item = {
-        'name': name,
-        'date': date,
+        'article_id': article_id,
+        'title': article_title,
+        'content': article_content,
         'img_source': img_location,
     }
     console.log(Item);
@@ -32,10 +34,10 @@ function upload_to_db(img_location) {
     fetch(URL, {
         method: "POST",
         headers: {
-            'Accept': 'application/json',
+            'Accept': 'application/json'
         },
         body: JSON.stringify({
-            "TableName": "board-test",
+            "TableName": "simple_board",
             Item
         })
     }).then(resp => console.log(resp))
