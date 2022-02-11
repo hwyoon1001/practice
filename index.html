@@ -88,7 +88,13 @@
                   .then(data => console.log(data))
                   .catch(err => console.error(err));
               }
-              
+                   var name = document.querySelector("#name").value;
+                    var date = document.querySelector("#date").value;
+                    var Item = {
+                    'article_id': name,
+                    'date': date,
+                    'img_source': img_location,
+                }
             function post() {
                   fetch(URL, {
                       method: "POST",
@@ -107,12 +113,7 @@
                 e.preventDefault();
                 add_article_with_photo('images');
              }
-             
-             const Item = {
-              "name": 123,
-              "data":"2022",
-              "Url":"s3://nmlt201021/images/Data_Original_P01V01.csv"
-            }
+
         </script>
  
     </body>
@@ -122,4 +123,5 @@
     </head>
  
 </html>
+
  
