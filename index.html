@@ -41,7 +41,7 @@
                   </tr>
                     <tr>
                       <td colspan="3" style="text-align: center;">
-                        <input type="button" value="등록" onClick="post()" />
+                        <input type="button" value="등록" onClick="upload_to_db()" />
                         <input type="reset" value="취소">
                      </td>
                     </table>
@@ -98,19 +98,19 @@
                     'img_source': img_location,
                 }
                 
-              function post() {
-                  fetch(URL, {
-                      method: "POST",
-                      headers: {
-                        'Accept': 'application/json',
-                      },
-                      body: JSON.stringify({
-                        "TableName": "board-test",
-                        Item
-                      })
-                    }).then(resp => console.log(resp))
-                    .catch(err => console.log(err))
-                }
+
+              fetch(URL, {
+                  method: "POST",
+                  headers: {
+                    'Accept': 'application/json',
+                  },
+                  body: JSON.stringify({
+                    "TableName": "board-test",
+                    Item
+                  })
+                }).then(resp => console.log(resp))
+                .catch(err => console.log(err))
+                
               }
 
             
