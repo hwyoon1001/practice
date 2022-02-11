@@ -82,31 +82,27 @@
 
             
             
-              function get() {
-                fetch(URL, {
-                    headers: {
-                      'Accept': 'application/json'
-                    }
-                  }).then(res => res.json())
-                  .then(data => console.log(data))
-                  .catch(err => console.error(err));
-              }
-              
-              function upload_to_db(img_location) {
-              var name = document.querySelector("#name").value;
-              var title = document.querySelector("#title").value;
-              
-              var Item = {
-                    'name': name,
-                    'title': title,
-                    'img_source': img_location,
+          function get() {
+            fetch(URL, {
+                headers: {
+                  'Accept': 'application/json'
                 }
-                
-                post(Item)
-                
-                
-              }
-       function post(Item) {
+              }).then(res => res.json())
+              .then(data => console.log(data))
+              .catch(err => console.error(err));
+          }
+              
+
+        var name = document.querySelector("#name").value;
+        var title = document.querySelector("#title").value;
+        
+        const Item = {
+              'name': name,
+              'title': title,
+              'img_source': img_location,
+          }
+
+       function post() {
       fetch(URL, {
           method: "POST",
           headers: {
@@ -123,10 +119,10 @@
               
 
             
-            function submitToAPI(e){
-                e.preventDefault();
-                add_article_with_photo('images');
-             }
+      function submitToAPI(e){
+          e.preventDefault();
+          add_article_with_photo('images');
+       }
 
         </script>
  
