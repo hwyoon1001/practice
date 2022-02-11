@@ -22,7 +22,7 @@ function upload_to_db(img_location) {
     var article_content = document.querySelector("#content").value;
  
     var Item = {
-        'article_id': name,
+        'article_id': article_id,
         'title': article_title,
         'content': article_content,
         'img_source': img_location,
