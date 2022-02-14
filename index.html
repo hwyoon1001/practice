@@ -75,9 +75,9 @@
               /* Append style to the head element */ 
               document.getElementsByTagName("head")[0].appendChild(css); 
           }
-          var elem = document.getElementById('articles');
+          
             /* API 게이트웨이로 매물리스트 정보 가져오는 함수 */ 
-            const URL = "https://l9biqyi3wk.execute-api.ap-northeast-2.amazonaws.com/stage/board" ;
+            
             
            function func(){
             upload_to_db();
@@ -85,8 +85,9 @@
            
            }
 
-            
-          function get(){
+       var elem = document.getElementById('articles'); 
+       const URL = "https://l9biqyi3wk.execute-api.ap-northeast-2.amazonaws.com/stage/board";    
+       function get(){
                 fetch(URL, {
                     method: "GET",
                     headers: {
@@ -102,8 +103,8 @@
                         let span = createNode('span');
                         
                         // console.log(article_indiv.img_source);
-                        //img.src = article_indiv.img_source;
-                        span.innerHTML = article_indiv.name +" - " + article_indiv.title;
+                        img.src = article_indiv.img_source;
+                        span.innerHTML = article_indiv.title +" - " + article_indiv.content;
  
                         append(li,img);
                         append(li,span);
@@ -116,7 +117,6 @@
                 })
                 .catch(err => console.log(err))
             }
-        
         var Item = {
               'name': "",
               'title': "",
