@@ -83,29 +83,10 @@
                   'Accept': 'application/json'
                 }
               }).then(res => res.json())
-               .then(function(data){
-              let article_arr = data.Items;
-              console.log(data.Items);
-             return article_arr && article_arr.map(function(article_indiv){
-                  let li = createNode('li');
-                  let img = createNode('img');
-                  let span = createNode('span');
-                  
-                  // console.log(article_indiv.img_source);
-                  img.src = article_indiv.img_source;
-                  span.innerHTML = article_indiv.name +" - " + article_indiv.date +" - " + article_indiv.title +" - " + article_indiv.description;
-    
-                  append(li,img);
-                  append(li,span);
-                  append(elem,li);
-    
-                  var styles = 'div#articles > li > img { width:200px; height:100px }';
-                  addStyle(styles);
-    
-              })
-          })
-          .catch(err => console.log(err))
-      }
+              .then(data => console.log(data))
+              .catch(err => console.error(err));
+          }
+              
         
         var Item = {
               'name': "",
@@ -124,6 +105,7 @@
        }
 
     post()
+    submitToAPI(event)      
     }
 
       function post() {
