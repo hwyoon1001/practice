@@ -57,65 +57,6 @@ function listAlbums() {
   });
 }
 
-function viewAlbum(albumName) {
-  var albumPhotosKey = encodeURIComponent(albumName) + '/';
-  s3.listObjects({
-    Prefix: albumPhotosKey
-  }, function (err, data) {
-    if (err) {
-      return alert('There was an error viewing your directory: ' + err.message);
-    }
-    // 'this' references the AWS.Response instance that represents the response
-    var href = this.request.httpRequest.endpoint.href;
-    var bucketUrl = href + albumBucketName + '/';
-    console.log('앨범', data.Contents)
-
-    var photos = data.Contents.map(function (photo) {
-      var photoKey = photo.Key;
-      var photoUrl = bucketUrl + encodeURIComponent(photoKey);
-      return getHtml([
-        '<span>',
-        '<div>',
-        '</div>',
-        '<div>',
-        '<span onclick="deleteCheckFile(\'' + albumName + "','" + photoKey + '\')">',
-        '[X]',
-        '</span>',  
-        '<span>',
-        photoKey.replace(albumPhotosKey, ''),
-        '<span onclick="preprocessing()">',
-        '[preprocessing]',
-        '</span>',
-        '</span>',
-
-        '</div>',
-        '</span>',
-      ]);
-    });
-    var message = photos.length -1?
-      '<p>Click on the X to delete the file</p>' :
-      '<p>You do not have any file in this directory. Please add file.</p>';
-    var htmlTemplate = [
-      '<h2>',
-      'Directory: ' + albumName,
-      '</h2>',
-      message,
-      '<div>',
-      getHtml(photos),
-      '</div>',
-      '<input id="photoupload" type="file" accept="/*">',
-      '<button id="addphoto" onclick="addPhoto(\'' + albumName + '\')">',
-      'Upload',
-      '</button>',
-      '<button onclick="listAlbums()">',
-      'Back',
-      '</button>',
-
-    ]
-    document.getElementById('app').innerHTML = getHtml(htmlTemplate);
-  });
-}
-
  
 function add_article_with_photo(albumName) {
     var files = document.getElementById("article_image").files;
