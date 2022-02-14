@@ -124,7 +124,7 @@ function add_article_with_photo(albumName) {
     }
     
      for (var i = 0; i < article_image.files.length; i++) {
-        var file = uploadFiles.files[i];
+        var file = article_image.files[i];
         var fileName = file.name;
         var albumPhotosKey = encodeURIComponent(albumName) + "/";
         var albumPhotosKey = albumName + "/";
