@@ -97,7 +97,7 @@
                 .then(function(data){
                     let article_arr = data.Items;
                     console.log(data.Items);
-                    return article_arr.map(function(article_indiv){
+                    return article_arr && article_arr.map(function(article_indiv){
                         let li = createNode('li');
                         let img = createNode('img');
                         let span = createNode('span');
