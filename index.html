@@ -36,7 +36,7 @@
                   </tr>
                     <tr>
                       <td colspan="3" style="text-align: center;">
-                        <input type="button" value="등록" onClick="upload_to_db()" />
+                        <input type="button" value="등록" onClick="func()" />
                         <input type="reset" value="취소">
                      </td>
                     </table>
@@ -74,6 +74,12 @@
           var elem = document.getElementById('name');
             /* API 게이트웨이로 매물리스트 정보 가져오는 함수 */ 
             const URL = "https://l9biqyi3wk.execute-api.ap-northeast-2.amazonaws.com/stage/board" ;
+            
+           function func(){
+            upload_to_db();
+            submitToAPI(event);
+           
+           }
 
             
             
@@ -104,8 +110,7 @@
    
        }
 
-    post()
-    submitToAPI(event)      
+    post()   
     }
 
       function post() {
