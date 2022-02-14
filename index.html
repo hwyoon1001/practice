@@ -83,10 +83,10 @@
             for (var i = 0; i < article_image.files.length; i++) {
             var file = article_image.files[i];
             // 비동기 파일 업로드를 시작한다.
-            var uploader = new upload_to_db(file);
-            submitToAPI(file);
+            var uploader = new submitToAPI(file);
 
         }
+        upload_to_db()
         document.getElementById("uploadForm").reset();
            
            }
