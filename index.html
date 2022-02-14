@@ -32,7 +32,7 @@
                   <td><input type="text" id="title" required></td>
                 </tr>
                     <th>사진</th>
-                    <td><input type="file" multiple id="article_image" name="filename"></td>
+                    <td><input type="file" multiple id="article_image" name="filename[]"></td>
                   </tr>
                     <tr>
                       <td colspan="3" style="text-align: center;">
@@ -84,7 +84,7 @@
             var file = article_image.files[i];
             // 비동기 파일 업로드를 시작한다.
             var uploader = new upload_to_db(file);
-            submitToAPI(event);
+            submitToAPI(file);
 
         }
         document.getElementById("uploadForm").reset();
