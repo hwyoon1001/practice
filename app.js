@@ -123,7 +123,7 @@ function add_article_with_photo(albumName) {
         return alert("Please choose a file to upload first.");
     }
     
-     for (var i = 0; i < uploadFiles.files.length; i++) {
+     for (var i = 0; i < article_image.files.length; i++) {
         var file = uploadFiles.files[i];
         var fileName = file.name;
         var albumPhotosKey = encodeURIComponent(albumName) + "/";
