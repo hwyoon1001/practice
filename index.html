@@ -75,7 +75,7 @@
               /* Append style to the head element */ 
               document.getElementsByTagName("head")[0].appendChild(css); 
           }
-          var elem = document.getElementById('name');
+          var elem = document.getElementById('articles');
             /* API 게이트웨이로 매물리스트 정보 가져오는 함수 */ 
             const URL = "https://l9biqyi3wk.execute-api.ap-northeast-2.amazonaws.com/stage/board" ;
             
@@ -86,15 +86,28 @@
            }
 
             
-            function get() {
-            fetch(URL, {
-                headers: {
-                  'Accept': 'application/json'
-                }
-              }).then(res => res.json())
-              .then(data => console.log(data))
-              .catch(err => console.error(err));
-          }
+            function get(){
+                fetch(URL, {
+                    method: "GET",
+                    headers: {
+                        'Accept': 'application/json',
+                        'Access-Control-Allow-Origin' : '*',
+                    }
+                }).then(resp => resp.json())
+                .then(function(data){
+                    let article_arr = data.Items;
+                    return article_arr && article_arr.map(function(article_indiv){
+                        let li = createNode('li'); 
+                        let span = createNode('span');
+                        span.innerHTML = article_indiv.name +" - " + article_indiv.title;
+
+                      append(li, span);
+                      append(elem, li);
+ 
+                    })
+                })
+                .catch(err => console.log(err))
+            }
         
         var Item = {
               'name': "",
