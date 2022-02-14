@@ -86,7 +86,7 @@
                .then(function(data){
               let article_arr = data.Items;
               console.log(data.Items);
-              span.innerHTML = data.Items;
+              document.write(data.Items);
           })
               .catch(err => console.error(err));
           }
