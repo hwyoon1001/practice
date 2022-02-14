@@ -86,22 +86,31 @@
            }
 
             
-            function get(){
+          function get(){
                 fetch(URL, {
                     method: "GET",
                     headers: {
-                        'Accept': 'application/json',
+                        'Accept': 'application/json'
                     }
                 }).then(resp => resp.json())
                 .then(function(data){
                     let article_arr = data.Items;
-                    return article_arr && article_arr.map(function(article_indiv){
-                        let li = createNode('li'); 
+                    console.log(data.Items);
+                    return article_arr.map(function(article_indiv){
+                        let li = createNode('li');
+                        let img = createNode('img');
                         let span = createNode('span');
+                        
+                        // console.log(article_indiv.img_source);
+                        //img.src = article_indiv.img_source;
                         span.innerHTML = article_indiv.name +" - " + article_indiv.title;
-
-                      append(li, span);
-                      append(elem, li);
+ 
+                        append(li,img);
+                        append(li,span);
+                        append(elem,li);
+ 
+                        var styles = 'div#articles > li > img { width:200px; height:100px }';
+                        addStyle(styles);
  
                     })
                 })
