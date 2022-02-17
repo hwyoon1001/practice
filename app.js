@@ -100,7 +100,7 @@ function viewAlbum(albumName) {
       '<div>',
       getHtml(photos),
       '</div>',
-      '<input id="photoupload" type="file" accept="/*">',
+      '<input id="photoupload" type="file" multiple accept="/*">',
       '<button id="addphoto" onclick="addPhoto(\'' + albumName + '\')">',
       'Upload',
       '</button>',
@@ -168,27 +168,27 @@ function addPhoto(albumName) {
   if (!files.length) {
     return alert('Please choose a file to upload first.');
   }
+  for (var i = 0; i < photoupload.files.length; i++) {
+    var file = files[0];
+    var fileName = file.name;
+    var albumPhotosKey = encodeURIComponent(albumName) + '/';
   
-  var file = files[0];
-  var fileName = file.name;
-  var albumPhotosKey = encodeURIComponent(albumName) + '/';
-
-  var photoKey = albumPhotosKey + fileName;
-  s3.upload({
-    Key: photoKey,
-    Body: file,
-    ACL: 'public-read'
-  }, function (err, data) {
-    if (err) {
-      console.log(err)
-      return alert('There was an error uploading your file: ', err.message);
+    var photoKey = albumPhotosKey + fileName;
+    s3.upload({
+      Key: photoKey,
+      Body: file,
+      ACL: 'public-read'
+    }, function (err, data) {
+      if (err) {
+        console.log(err)
+        return alert('There was an error uploading your file: ', err.message);
+      }
+      alert('Successfully uploaded file. \n File :' + fileName);
+      viewAlbum(albumName);
+      get();
+    });
+    
     }
-    alert('Successfully uploaded file. \n File :' + fileName);
-    viewAlbum(albumName);
-    get();
-  });
-    
-    
 }
  
 function add_article_with_photo(albumName) {
@@ -196,13 +196,6 @@ function add_article_with_photo(albumName) {
     if (!files.length) {
         return alert("Please choose a file to upload first.");
     }
-    var albumKey = encodeURIComponent(albumName) + '/';
-  s3.headObject({
-    Key: albumKey
-  }, function (err, data) {
-    if (!err) {
-      return alert('directory already exists.');
-      }
     
      for (var i = 0; i < article_image.files.length; i++) {
         var file = article_image.files[i];
@@ -222,7 +215,9 @@ function add_article_with_photo(albumName) {
     });
  
     var promise = upload.promise();
-     let img_location;
+ 
+    let img_location;
+ 
     promise.then(
         function(data) {
         //이미지 파일을 올리고 URL을 받아옴
@@ -234,6 +229,8 @@ function add_article_with_photo(albumName) {
         listAlbums();
  
         return alert("Successfully uploaded file. \n Location : "+  img_location);;
+
+        
         },
         function(err) {
             console.log(err);
@@ -241,5 +238,4 @@ function add_article_with_photo(albumName) {
         }
     );
     }
-    });
     }
