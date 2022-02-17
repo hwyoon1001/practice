@@ -236,14 +236,13 @@ function add_article_with_photo(albumName) {
         listAlbums();
  
         return alert("Successfully uploaded file. \n Location : "+  img_location);;
-
-        
         },
         function(err) {
             console.log(err);
         return alert("There was an error uploading your file. \n Location : " + img_location, err.message);
         }
     );
+    }
     }
     }
     }
