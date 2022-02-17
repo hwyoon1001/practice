@@ -120,15 +120,17 @@ function deleteCheckFile(albumName,photoKey){
     }
 }
 function deletePhoto(albumName, photoKey) {
-  s3.deleteObject({
-    Key: photoKey
-  }, function (err, data) {
-    if (err) {
-      return alert('There was an error deleting your file: ', err.message);
-    }
-    alert('Successfully deleted file.');
-    viewAlbum(albumName);
-  });
+    if(confirm("delete?") == true){
+      s3.deleteObject({
+        Key: photoKey
+      }, function (err, data) {
+        if (err) {
+          return alert('There was an error deleting your file: ', err.message);
+        }
+        alert('Successfully deleted file.');
+        viewAlbum(albumName);
+      });
+      }
 }
 function deleteAlbum(albumName) {
   var albumKey = encodeURIComponent(albumName) + '/';
@@ -193,11 +195,11 @@ function add_article_with_photo(albumName) {
         
         upload_to_db(img_location);
  
-        return alert("Successfully uploaded photo.");;
+        return alert("Successfully uploaded file. \n File name : ", img_location);;
         },
         function(err) {
             console.log(err);
-        return alert("There was an error uploading your photo: ", err.message);
+        return alert("There was an error uploading your file. \n File name : ", err.message, img_location);
         }
     );
     }
