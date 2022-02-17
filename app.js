@@ -64,7 +64,7 @@ function viewAlbum(albumName) {
     // 'this' references the AWS.Response instance that represents the response
     var href = this.request.httpRequest.endpoint.href;
     var bucketUrl = href + albumBucketName + '/';
-    console.log('앨범', data.Contents)
+    console.log('directory', data.Contents)
 
     var photos = data.Contents.map(function (photo) {
       var photoKey = photo.Key;
@@ -111,7 +111,51 @@ function viewAlbum(albumName) {
     document.getElementById('page').innerHTML = getHtml(htmlTemplate);
   });
 }
-
+function deleteCheckFile(albumName,photoKey){
+    if(confirm("delete?") == true){
+        deletePhoto(albumName,photoKey);
+    }else{
+      return;
+    }
+}
+function deletePhoto(albumName, photoKey) {
+  s3.deleteObject({
+    Key: photoKey
+  }, function (err, data) {
+    if (err) {
+      return alert('There was an error deleting your file: ', err.message);
+    }
+    alert('Successfully deleted file.');
+    viewAlbum(albumName);
+  });
+}
+function deleteAlbum(albumName) {
+  var albumKey = encodeURIComponent(albumName) + '/';
+  s3.listObjects({
+    Prefix: albumKey
+  }, function (err, data) {
+    if (err) {
+      return alert('There was an error deleting your directory: ', err.message);
+    }
+    var objects = data.Contents.map(function (object) {
+      return {
+        Key: object.Key
+      };
+    });
+    s3.deleteObjects({
+      Delete: {
+        Objects: objects,
+        Quiet: true
+      }
+    }, function (err, data) {
+      if (err) {
+        return alert('There was an error deleting your directory: ', err.message);
+      }
+      alert('Successfully deleted directory.');
+      listAlbums();
+    });
+  });
+}
  
 function add_article_with_photo(albumName) {
     var files = document.getElementById("article_image").files;
