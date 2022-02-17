@@ -100,7 +100,7 @@ function viewAlbum(albumName) {
       '<div>',
       getHtml(photos),
       '</div>',
-      '<input id="photoupload" type="file" accept="/*">',
+      '<input id="photoupload" type="file" multiple accept="/*">',
       '<button id="addphoto" onclick="addPhoto(\'' + albumName + '\')">',
       'Upload',
       '</button>',
@@ -156,6 +156,7 @@ function deleteAlbum(albumName) {
       }
       alert('Successfully deleted directory.');
       listAlbums();
+      get();
     });
   });
   }
@@ -182,6 +183,7 @@ function addPhoto(albumName) {
     }
     alert('Successfully uploaded file. \n File :' + fileName);
     viewAlbum(albumName);
+    get();
   });
 }
  
