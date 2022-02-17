@@ -219,10 +219,11 @@ function add_article_with_photo(albumName) {
         // console.log(img_location);
         
         upload_to_db(img_location);
- 
-        return alert("Successfully uploaded file. \n Location : "+  img_location);;
         get();
         listAlbums();
+ 
+        return alert("Successfully uploaded file. \n Location : "+  img_location);;
+
         
         },
         function(err) {
