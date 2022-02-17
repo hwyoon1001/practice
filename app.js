@@ -23,12 +23,13 @@ function listAlbums() {
     if (err) {
       return alert('There was an error listing your directory: ' + err.message);
     } else {
-      console.log('앨범', data.CommonPrefixes)
+      console.log('directory', data.CommonPrefixes)
       var albums = data.CommonPrefixes.map(function (commonPrefix) {
         var prefix = commonPrefix.Prefix;
         var albumName = decodeURIComponent(prefix.replace('/', ''));
         return getHtml([
           '<li>',
+          "<span onclick=\"deleteAlbum('" + albumName + "')\">[X]</span>",
           '<span onclick="viewAlbum(\'' + albumName + '\')">',
           albumName,
           '</span>',
