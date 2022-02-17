@@ -7,7 +7,7 @@
         </style>
             <!--켜지면 get() 함수를 실행함.  -->
             <body onLoad="get()">
-                <div id="articles">
+                <div id="page">
             
                 </div>
 
@@ -86,7 +86,7 @@
            
            }
 
-       var elem = document.getElementById('articles'); 
+       var elem = document.getElementById('page'); 
        const URL = "https://l9biqyi3wk.execute-api.ap-northeast-2.amazonaws.com/stage/board";    
        function get(){
                 fetch(URL, {
@@ -111,7 +111,7 @@
                         append(li,span);
                         append(elem,li);
  
-                        var styles = 'div#articles > li > img { width:200px; height:100px }';
+                        var styles = 'div#page > li > img { width:200px; height:100px }';
                         addStyle(styles);
  
                     })
