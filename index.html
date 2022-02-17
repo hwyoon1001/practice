@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Article_Add</title>
+        <title>Upload System</title>
         <style>
         </style>
             <!--켜지면 get() 함수를 실행함.  -->
@@ -18,7 +18,7 @@
         <div class="Top">
   
         </div>
-        <div style="text-align: center;"><h1>글 등록 페이지</h1></div>
+        <div style="text-align: center;"><h1>Upload</h1></div>
  
         <form name="article_add_form" method="POST">
             <table width="940" style="padding:5px 0 5px 0; ">
@@ -29,7 +29,7 @@
                </tr>
                <tr>
                   <th>EEG</th>
-                  <td><input type="text" id="title" required></td>
+                  <td><input type="text" id="eeg" required></td>
                 </tr>
                     <th>사진</th>
                     <td><input type="file" multiple id="article_image" name="filename[]"></td>
@@ -120,16 +120,16 @@
             }
         var Item = {
               'name': "",
-              'title': "",
+              'eeg': "",
               'img_source': "",
           }
           
       function upload_to_db(img_location) {
         var name = document.querySelector("#name").value;
-        var title = document.querySelector("#title").value;
+        var eeg = document.querySelector("#eeg").value;
        Item = {
         'name': name,
-        'title': title,
+        'eeg': eeg,
         'img_source': img_location,
    
        }
