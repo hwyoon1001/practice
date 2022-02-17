@@ -160,6 +160,30 @@ function deleteAlbum(albumName) {
   });
   }
 }
+
+function addPhoto(albumName) {
+  var files = document.getElementById('photoupload').files;
+  if (!files.length) {
+    return alert('Please choose a file to upload first.');
+  }
+  var file = files[0];
+  var fileName = file.name;
+  var albumPhotosKey = encodeURIComponent(albumName) + '/';
+
+  var photoKey = albumPhotosKey + fileName;
+  s3.upload({
+    Key: photoKey,
+    Body: file,
+    ACL: 'public-read'
+  }, function (err, data) {
+    if (err) {
+      console.log(err)
+      return alert('There was an error uploading your file: ', err.message);
+    }
+    alert('Successfully uploaded file. \n File :' + fileName);
+    viewAlbum(albumName);
+  });
+}
  
 function add_article_with_photo(albumName) {
     var files = document.getElementById("article_image").files;
