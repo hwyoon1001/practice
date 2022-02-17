@@ -223,7 +223,6 @@ function add_article_with_photo(albumName) {
  
     var promise = upload.promise();
      let img_location;
- 
     promise.then(
         function(data) {
         //이미지 파일을 올리고 URL을 받아옴
@@ -242,5 +241,5 @@ function add_article_with_photo(albumName) {
         }
     );
     }
-    }
+    });
     }
