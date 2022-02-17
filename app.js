@@ -48,7 +48,7 @@ function listAlbums() {
         getHtml(albums),
         '</ul>',
       ]
-      document.getElementById('articles').innerHTML = getHtml(htmlTemplate);
+      document.getElementById('page').innerHTML = getHtml(htmlTemplate);
     }
   });
 }
@@ -108,7 +108,7 @@ function viewAlbum(albumName) {
       '</button>',
 
     ]
-    document.getElementById('articles').innerHTML = getHtml(htmlTemplate);
+    document.getElementById('page').innerHTML = getHtml(htmlTemplate);
   });
 }
 
