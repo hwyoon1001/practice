@@ -196,11 +196,11 @@ function add_article_with_photo(albumName) {
         
         upload_to_db(img_location);
  
-        return alert("Successfully uploaded file. \n File name : "+ fileName );;
+        return alert("Successfully uploaded file. \n Location : "+  img_location);;
         },
         function(err) {
             console.log(err);
-        return alert("There was an error uploading your file. \n File name : " + fileName, err.message);
+        return alert("There was an error uploading your file. \n Location : " + img_location, err.message);
         }
     );
     }
