@@ -222,8 +222,7 @@ function add_article_with_photo(albumName) {
     });
  
     var promise = upload.promise();
- 
-    let img_location;
+     let img_location;
  
     promise.then(
         function(data) {
@@ -242,7 +241,6 @@ function add_article_with_photo(albumName) {
         return alert("There was an error uploading your file. \n Location : " + img_location, err.message);
         }
     );
-    }
     }
     }
     }
