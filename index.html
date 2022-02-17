@@ -109,6 +109,7 @@
                         
                         // console.log(article_indiv.img_source);
                         //img.src = article_indiv.img_source;
+                        <h2>DynamoDB</h2>
                         span.innerHTML = "Name :"+ article_indiv.name +" - " + "EEG :"+ article_indiv.eeg;
  
                         append(li,img);
@@ -165,6 +166,7 @@
           e.preventDefault();
           var name = document.querySelector("#name").value;
           add_article_with_photo(name);
+          get();
        }
 
         </script>
