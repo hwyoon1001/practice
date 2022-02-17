@@ -133,7 +133,7 @@ function deletePhoto(albumName, photoKey) {
 }
 function deleteAlbum(albumName) {
   var albumKey = encodeURIComponent(albumName) + '/';
-  if(confirm("delete?") == true){
+  
   s3.listObjects({
     Prefix: albumKey
   }, function (err, data) {
@@ -158,7 +158,7 @@ function deleteAlbum(albumName) {
       listAlbums();
     });
   });
-  {
+  }
 }
  
 function add_article_with_photo(albumName) {
