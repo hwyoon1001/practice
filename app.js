@@ -100,7 +100,7 @@ function viewAlbum(albumName) {
       '<div>',
       getHtml(photos),
       '</div>',
-      '<input id="photoupload" type="file" multiple accept="/*">',
+      '<input id="photoupload" type="file" accept="/*">',
       '<button id="addphoto" onclick="addPhoto(\'' + albumName + '\')">',
       'Upload',
       '</button>',
@@ -168,27 +168,27 @@ function addPhoto(albumName) {
   if (!files.length) {
     return alert('Please choose a file to upload first.');
   }
-  for (var i = 0; i < photoupload.files.length; i++) {
-    var file = files[0];
-    var fileName = file.name;
-    var albumPhotosKey = encodeURIComponent(albumName) + '/';
   
-    var photoKey = albumPhotosKey + fileName;
-    s3.upload({
-      Key: photoKey,
-      Body: file,
-      ACL: 'public-read'
-    }, function (err, data) {
-      if (err) {
-        console.log(err)
-        return alert('There was an error uploading your file: ', err.message);
-      }
-      alert('Successfully uploaded file. \n File :' + fileName);
-      viewAlbum(albumName);
-      get();
-    });
-    
+  var file = files[0];
+  var fileName = file.name;
+  var albumPhotosKey = encodeURIComponent(albumName) + '/';
+
+  var photoKey = albumPhotosKey + fileName;
+  s3.upload({
+    Key: photoKey,
+    Body: file,
+    ACL: 'public-read'
+  }, function (err, data) {
+    if (err) {
+      console.log(err)
+      return alert('There was an error uploading your file: ', err.message);
     }
+    alert('Successfully uploaded file. \n File :' + fileName);
+    viewAlbum(albumName);
+    get();
+  });
+    
+    
 }
  
 function add_article_with_photo(albumName) {
@@ -196,6 +196,13 @@ function add_article_with_photo(albumName) {
     if (!files.length) {
         return alert("Please choose a file to upload first.");
     }
+    var albumKey = encodeURIComponent(albumName) + '/';
+  s3.headObject({
+    Key: albumKey
+  }, function (err, data) {
+    if (!err) {
+      return alert('directory already exists.');
+      }
     
      for (var i = 0; i < article_image.files.length; i++) {
         var file = article_image.files[i];
@@ -237,5 +244,6 @@ function add_article_with_photo(albumName) {
         return alert("There was an error uploading your file. \n Location : " + img_location, err.message);
         }
     );
+    }
     }
     }
