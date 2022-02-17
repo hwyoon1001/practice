@@ -221,6 +221,9 @@ function add_article_with_photo(albumName) {
         upload_to_db(img_location);
  
         return alert("Successfully uploaded file. \n Location : "+  img_location);;
+        get();
+        listAlbums();
+        
         },
         function(err) {
             console.log(err);
