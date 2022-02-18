@@ -107,7 +107,6 @@ function viewAlbum(albumName) {
       '<button onclick="listAlbums()">',
       'Back',
       '</button>',
-
     ]
     document.getElementById('page').innerHTML = getHtml(htmlTemplate);
   });
@@ -204,14 +203,12 @@ function add_article_with_photo(albumName) {
     if (!err) {
       return alert('directory already exists.');
     }
-    });
-    
+
      for (var i = 0; i < article_image.files.length; i++) {
         var file = article_image.files[i];
         var fileName = file.name;
         var albumPhotosKey = encodeURIComponent(albumName) + "/";
         var albumPhotosKey = albumName + "/";
-     
         var photoKey = albumPhotosKey + fileName;
  
     // Use S3 ManagedUpload class as it supports multipart uploads
@@ -224,9 +221,7 @@ function add_article_with_photo(albumName) {
     });
  
     var promise = upload.promise();
- 
     let img_location;
- 
     promise.then(
         function(data) {
         //이미지 파일을 올리고 URL을 받아옴
@@ -239,13 +234,13 @@ function add_article_with_photo(albumName) {
         get();
  
         return alert("Successfully uploaded file. \n Location : "+  img_location);;
-
-        
         },
+        
         function(err) {
             console.log(err);
         return alert("There was an error uploading your file. \n Location : " + img_location, err.message);
         }
     );
     }
+    });
     }
