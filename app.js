@@ -201,7 +201,7 @@ function add_article_with_photo(albumName) {
    s3.headObject({
     Key: albumKey
   }, function (err, data) {
-    if (!err) {
+    if (data == albumName) {
       return alert('directory already exists.');
     }
      for (var i = 0; i < article_image.files.length; i++) {
