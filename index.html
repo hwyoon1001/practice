@@ -51,9 +51,6 @@
          
         <script src="https://sdk.amazonaws.com/js/aws-sdk-2.283.1.min.js"></script>
         <script src="./app.js"></script>
-        <script language="javascript">
-        function showPopup() 
-        { window.open("upload.html", "upload", "width=400, height=300, left=100, top=50"); }
         
         <script>
         function getHtml(template) {
@@ -112,7 +109,7 @@
                         
                         // console.log(article_indiv.img_source);
                         //img.src = article_indiv.img_source;
-                        span.innerHTML = "<h2>DynamoDB</h2>\n" + "Name :"+ article_indiv.name +" - " + "EEG :"+ article_indiv.eeg;
+                        span.innerHTML = "Name :"+ article_indiv.name +" - " + "EEG :"+ article_indiv.eeg;
  
                         append(li,img);
                         append(li,span);
@@ -168,7 +165,6 @@
           e.preventDefault();
           var name = document.querySelector("#name").value;
           add_article_with_photo(name);
-          get();
        }
 
         </script>
