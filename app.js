@@ -17,6 +17,7 @@ var s3 = new AWS.S3({
 });
 
 function listAlbums() {
+  get();
   s3.listObjects({
     Delimiter: '/'
   }, function (err, data) {
