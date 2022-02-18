@@ -17,7 +17,6 @@ var s3 = new AWS.S3({
 });
 
 function listAlbums() {
-  get();
   s3.listObjects({
     Delimiter: '/'
   }, function (err, data) {
@@ -129,6 +128,7 @@ function deletePhoto(albumName, photoKey) {
         }
         alert('Successfully deleted file.');
         viewAlbum(albumName);
+        get();
       });
       
 }
@@ -226,8 +226,9 @@ function add_article_with_photo(albumName) {
         // console.log(img_location);
         
         upload_to_db(img_location);
-        get();
+        
         listAlbums();
+        get();
  
         return alert("Successfully uploaded file. \n Location : "+  img_location);;
 
