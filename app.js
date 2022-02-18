@@ -197,13 +197,7 @@ function add_article_with_photo(albumName) {
     if (!files.length) {
         return alert("Please choose a file to upload first.");
     }
-    var albumKey = encodeURIComponent(albumName) + '/';
-   s3.headObject({
-    Key: albumKey
-  }, function (err, data) {
-    if (data == albumName) {
-      return alert('directory already exists.');
-    }
+    
      for (var i = 0; i < article_image.files.length; i++) {
         var file = article_image.files[i];
         var fileName = file.name;
@@ -230,10 +224,15 @@ function add_article_with_photo(albumName) {
         //이미지 파일을 올리고 URL을 받아옴
         img_location = JSON.stringify(data.Location).replaceAll("\"","");
         // console.log(img_location);
-        upload_to_db(img_location); 
+        
+        upload_to_db(img_location);
+        
         listAlbums();
         get();
+ 
         return alert("Successfully uploaded file. \n Location : "+  img_location);;
+
+        
         },
         function(err) {
             console.log(err);
@@ -241,5 +240,4 @@ function add_article_with_photo(albumName) {
         }
     );
     }
-     });
     }
