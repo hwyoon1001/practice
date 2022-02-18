@@ -6,7 +6,7 @@
         <style>
         </style>
             <!--켜지면 get() 함수를 실행함.  -->
-            <body>
+            <body onLoad="get()">
                 <div id="page">
             
                 </div>
@@ -53,8 +53,6 @@
         <script src="./app.js"></script>
         
         <script>
-        window.onload=get()
-        <div id="page"></div>
         function getHtml(template) {
           return template.join('\n');
         }
