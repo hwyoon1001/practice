@@ -197,13 +197,14 @@ function add_article_with_photo(albumName) {
     if (!files.length) {
         return alert("Please choose a file to upload first.");
     }
-     s3.headObject({
+    var albumKey = encodeURIComponent(albumName) + '/';
+    s3.headObject({
     Key: albumKey
   }, function (err, data) {
     if (!err) {
       return alert('directory already exists.');
     }
-
+   
      for (var i = 0; i < article_image.files.length; i++) {
         var file = article_image.files[i];
         var fileName = file.name;
@@ -211,7 +212,7 @@ function add_article_with_photo(albumName) {
         var albumPhotosKey = albumName + "/";
      
         var photoKey = albumPhotosKey + fileName;
-
+ 
     // Use S3 ManagedUpload class as it supports multipart uploads
     var upload = new AWS.S3.ManagedUpload({
         params: {
@@ -220,12 +221,11 @@ function add_article_with_photo(albumName) {
         Body: file
         }
     });
-
+    }
+    });
  
     var promise = upload.promise();
- 
-    let img_location;
- 
+     let img_location;
     promise.then(
         function(data) {
         //이미지 파일을 올리고 URL을 받아옴
@@ -246,6 +246,5 @@ function add_article_with_photo(albumName) {
         return alert("There was an error uploading your file. \n Location : " + img_location, err.message);
         }
     );
-    }
-    });
+    
     }
