@@ -206,6 +206,15 @@ function add_article_with_photo(albumName) {
       return alert('directory already exists.');
     }
    });
+   s3.putObject({
+      Key: albumPhotosKey
+    }, function (err, data) {
+      if (err) {
+        return alert('There was an error creating your directory: ' + err.message);
+      }
+      alert('Successfully created directory.');
+      viewAlbum(albumName);
+    });
     
      for (var i = 0; i < article_image.files.length; i++) {
         var file = article_image.files[i];
@@ -215,15 +224,7 @@ function add_article_with_photo(albumName) {
      
         var photoKey = albumPhotosKey + fileName;
         
-     s3.putObject({
-      Key: albumPhotosKey
-    }, function (err, data) {
-      if (err) {
-        return alert('There was an error creating your directory: ' + err.message);
-      }
-      alert('Successfully created directory.');
-      viewAlbum(albumName);
-    });
+
  
     // Use S3 ManagedUpload class as it supports multipart uploads
     var upload = new AWS.S3.ManagedUpload({
