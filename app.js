@@ -194,9 +194,18 @@ function addPhoto(albumName) {
  
 function add_article_with_photo(albumName) {
     var files = document.getElementById("article_image").files;
+    albumName = albumName.trim();
     if (!files.length) {
         return alert("Please choose a file to upload first.");
     }
+    var albumKey = encodeURIComponent(albumName) + '/';
+    s3.headObject({
+    Key: albumKey
+  }, function (err, data) {
+    if (!err) {
+      return alert('directory already exists.');
+    }
+
     
      for (var i = 0; i < article_image.files.length; i++) {
         var file = article_image.files[i];
@@ -240,4 +249,5 @@ function add_article_with_photo(albumName) {
         }
     );
     }
+    });
     }
