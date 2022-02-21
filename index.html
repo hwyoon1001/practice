@@ -88,6 +88,9 @@
            upload_to_db();
            submitToAPI(event);
            
+           document.querySelector("#name").value ='';
+           
+           
            }
 
        var elem = document.getElementById('page'); 
@@ -166,6 +169,7 @@
           var name = document.querySelector("#name").value;
           add_article_with_photo(name);
        }
+       
 
         </script>
  
