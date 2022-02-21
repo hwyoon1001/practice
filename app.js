@@ -205,8 +205,7 @@ function add_article_with_photo(albumName) {
     if (!err) {
       return alert('directory already exists.');
     }
-   });
-   s3.putObject({
+       s3.putObject({
       Key: albumKey
     }, function (err, data) {
       if (err) {
@@ -216,6 +215,8 @@ function add_article_with_photo(albumName) {
       viewAlbum(albumName);
     });
     
+   });
+
      for (var i = 0; i < article_image.files.length; i++) {
         var file = article_image.files[i];
         var fileName = file.name;
