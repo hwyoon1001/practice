@@ -205,7 +205,7 @@ function add_article_with_photo(albumName) {
     if (!err) {
       return alert('directory already exists.');
     }
-
+   });
     
      for (var i = 0; i < article_image.files.length; i++) {
         var file = article_image.files[i];
@@ -249,5 +249,5 @@ function add_article_with_photo(albumName) {
         }
     );
     }
-    });
+ 
     }
