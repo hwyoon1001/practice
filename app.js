@@ -214,6 +214,16 @@ function add_article_with_photo(albumName) {
         var albumPhotosKey = albumName + "/";
      
         var photoKey = albumPhotosKey + fileName;
+        
+     s3.putObject({
+      Key: albumPhotosKey
+    }, function (err, data) {
+      if (err) {
+        return alert('There was an error creating your directory: ' + err.message);
+      }
+      alert('Successfully created directory.');
+      viewAlbum(albumName);
+    });
  
     // Use S3 ManagedUpload class as it supports multipart uploads
     var upload = new AWS.S3.ManagedUpload({
