@@ -88,11 +88,6 @@
            upload_to_db();
            submitToAPI(event);
            
-           document.querySelector("#name").value ='';
-           document.querySelector("#eeg").value ='';
-           document.querySelector("#article_image").value ='';
-           document.querySelector("#description").value ='';
-           
            
            }
 
@@ -173,6 +168,13 @@
           add_article_with_photo(name);
        }
        
+       function reset(){
+          document.querySelector("#name").value = '';
+          document.querySelector("#eeg").value = '';
+          document.querySelector("#description").value = '';
+          document.querySelector("#article_image").value = '';
+       
+       }
 
         </script>
  
