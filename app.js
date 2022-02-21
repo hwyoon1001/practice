@@ -218,12 +218,9 @@ function add_article_with_photo(albumName) {
         var file = article_image.files[i];
         var fileName = file.name;
         var albumPhotosKey = encodeURIComponent(albumName) + "/";
-        var albumPhotosKey = albumName + "/";
-     
+        var albumPhotosKey = albumName + "/"; 
         var photoKey = albumPhotosKey + fileName;
-        
 
- 
     // Use S3 ManagedUpload class as it supports multipart uploads
     var upload = new AWS.S3.ManagedUpload({
         params: {
@@ -257,8 +254,9 @@ function add_article_with_photo(albumName) {
             console.log(err);
         return alert("There was an error uploading your file. \n Location : " + img_location, err.message);
         }
-        reset();
+        
     );
+    reset();
     }
  
     
