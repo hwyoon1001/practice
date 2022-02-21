@@ -207,7 +207,7 @@ function add_article_with_photo(albumName) {
     }
    });
    s3.putObject({
-      Key: albumPhotosKey
+      Key: albumKey
     }, function (err, data) {
       if (err) {
         return alert('There was an error creating your directory: ' + err.message);
