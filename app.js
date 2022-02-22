@@ -254,7 +254,6 @@ function add_article_with_photo(albumName) {
     );
 
     }
-    reset();
    });
 
     }
