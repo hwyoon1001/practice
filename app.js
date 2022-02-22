@@ -246,9 +246,7 @@ function add_article_with_photo(albumName) {
         get();
  
         return alert("Successfully uploaded file. \n Location : "+  img_location);
-        
 
-        
         },
         function(err) {
             console.log(err);
@@ -256,8 +254,9 @@ function add_article_with_photo(albumName) {
         }
         
     );
-    reset();
+
     }
+    reset();
  
     
    });
