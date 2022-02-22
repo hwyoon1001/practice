@@ -211,8 +211,6 @@ function add_article_with_photo(albumName) {
       if (err) {
         return alert('There was an error creating your directory: ' + err.message);
       }
-      //alert('Successfully created directory.');
-      //viewAlbum(albumName);
     });
          for (var i = 0; i < article_image.files.length; i++) {
         var file = article_image.files[i];
@@ -257,11 +255,9 @@ function add_article_with_photo(albumName) {
 
     }
     //reset();
- 
-    
    });
   
-
+  reset();
 
     }
     
