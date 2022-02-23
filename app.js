@@ -198,7 +198,6 @@ var Key = {
   }
 
 function preprocessing(albumName,photoKey){
-  alert('Successfully send.');
   Key = {
       'key1': albumName,
       'key2': photoKey,
@@ -222,6 +221,8 @@ function post2() {
         })
       }).then(resp => console.log(resp))
       .catch(err => console.log(err))
+       alert('Successfully send.' + Key);
+       
 }
  
 
