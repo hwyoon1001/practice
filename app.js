@@ -220,7 +220,7 @@ function post2() {
         })
       }).then(resp => console.log(resp))
       .catch(err => console.log(err))
-       alert('Successfully send.' + Key);
+       alert('Successfully send.' + send);
        
 }
  
