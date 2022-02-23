@@ -80,7 +80,7 @@ function viewAlbum(albumName) {
         '</span>',  
         '<span>',
         photoKey.replace(albumPhotosKey, ''),
-        '<span onclick="preprocessing(albumBucketName,photoKey)">',
+        '<span onclick="preprocessing()">',
         '[preprocessing]',
         '</span>',
         '</span>',
@@ -192,13 +192,13 @@ function addPhoto(albumName) {
     }
 }
 
-var Key = {
+var send = {
       'key1': "",
       'key2': "",
   }
 
 function preprocessing(albumName, photoKey){
-  Key = {
+  send = {
       'key1': albumName,
       'key2': photoKey,
   }
@@ -216,7 +216,7 @@ function post2() {
           'Accept': 'application/json',
         },
         body: JSON.stringify({
-         Key
+         send
         })
       }).then(resp => console.log(resp))
       .catch(err => console.log(err))
