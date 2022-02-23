@@ -193,14 +193,14 @@ function addPhoto(albumName) {
 }
 
 var send = {
-      'key1': "",
-      'key2': "",
+      "'key1'": "",
+      "'key2'": "",
   }
 
 function preprocessing(albumName, photoKey){
   send = {
-      'key1': albumName,
-      'key2': photoKey,
+      "'key1'": albumName,
+      "'key2'": photoKey,
   }
   post2()
 }
@@ -210,18 +210,17 @@ function preprocessing(albumName, photoKey){
 const URL2 =  "https://b5um800ra9.execute-api.ap-northeast-2.amazonaws.com/default/lambda-ecr" ;    
 
 function post2() {
-    a = send
     fetch(URL2, {
         method: "POST",
         headers: {
           'Accept': 'application/json',
         },
         body: JSON.stringify({
-        a
+        send
         })
       }).then(resp => console.log(resp))
       .catch(err => console.log(err))
-       alert('Successfully send.' + a);
+       alert('Successfully send.' + send);
        console.log(send);
        
 }
