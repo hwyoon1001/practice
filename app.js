@@ -80,7 +80,7 @@ function viewAlbum(albumName) {
         '</span>',  
         '<span>',
         photoKey.replace(albumPhotosKey, ''),
-        '<span onclick="preprocessing(albumPhotosKey,photoKey)">',
+        '<span onclick="preprocessing()">',
         '[preprocessing]',
         '</span>',
         '</span>',
@@ -197,7 +197,7 @@ var Key = {
       'key2': "",
   }
 
-function preprocessing(albumName,photoKey){
+function preprocessing(){
   Key = {
       'key1': albumName,
       'key2': photoKey,
@@ -216,8 +216,7 @@ function post2() {
           'Accept': 'application/json',
         },
         body: JSON.stringify({
-          "TableName": "board-test",
-          Key
+         Key
         })
       }).then(resp => console.log(resp))
       .catch(err => console.log(err))
