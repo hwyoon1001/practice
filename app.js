@@ -202,14 +202,14 @@ function preprocessing(albumName, photoKey){
       'key1': albumName,
       'key2': photoKey,
   }
-  post2(send)
+  post2()
 }
 
 
 
 const URL2 =  "https://b5um800ra9.execute-api.ap-northeast-2.amazonaws.com/default/lambda-ecr" ;    
 
-function post2(send) {
+function post2() {
     fetch(URL2, {
         method: "POST",
         headers: {
