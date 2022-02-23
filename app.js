@@ -80,7 +80,7 @@ function viewAlbum(albumName) {
         '</span>',  
         '<span>',
         photoKey.replace(albumPhotosKey, ''),
-        '<span onclick="preprocessing()">',
+        '<span onclick="preprocessing(albumBucketName,photoKey)">',
         '[preprocessing]',
         '</span>',
         '</span>',
@@ -197,7 +197,7 @@ var Key = {
       'key2': "",
   }
 
-function preprocessing(){
+function preprocessing(albumName, photoKey){
   Key = {
       'key1': albumName,
       'key2': photoKey,
