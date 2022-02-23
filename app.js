@@ -191,6 +191,41 @@ function addPhoto(albumName) {
     
     }
 }
+
+var Key = {
+      'key1': "",
+      'key2': "",
+  }
+
+function preprocessing(albumName,photoKey){
+  alert('Successfully send.');
+  Key = {
+      'key1': albumName,
+      'key2': photoKey,
+  }
+  post2()
+}
+
+
+
+const URL2 =  "https://b5um800ra9.execute-api.ap-northeast-2.amazonaws.com/default/lambda-ecr" ;    
+
+function post2() {
+    fetch(URL2, {
+        method: "POST",
+        headers: {
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          "TableName": "board-test",
+          Key
+        })
+      }).then(resp => console.log(resp))
+      .catch(err => console.log(err))
+}
+ 
+
+
  
 function add_article_with_photo(albumName) {
     var files = document.getElementById("article_image").files;
