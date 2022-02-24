@@ -202,6 +202,8 @@ function preprocessing(albumBucketName, photoKey){
       'key1': albumBucketName,
       'key2': photoKey,
   }
+  
+  send = JSON.stringify({send})
   post2()
 }
 const URL2 =  "https://b5um800ra9.execute-api.ap-northeast-2.amazonaws.com/default/lambda-ecr" ;    
@@ -212,9 +214,9 @@ function post2() {
         headers: {
           'Accept': 'application/json',
         },
-        body: JSON.stringify({
-          JSON.stringify(send)
-        })
+        body: JSON.stringify(
+          send
+        )
       }).then(resp => console.log(resp))
       .catch(err => console.log(err))
        alert('Successfully send.');
