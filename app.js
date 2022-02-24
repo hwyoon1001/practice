@@ -193,20 +193,17 @@ function addPhoto(albumName) {
 }
 
 var send = {
-      'key1': "",
-      'key2': "",
+      '"key1"': "",
+      '"key2"': "",
   }
 
 function preprocessing(albumBucketName, photoKey){
   send = {
-      'key1': albumBucketName,
-      'key2': photoKey,
+      '"key1"': albumBucketName,
+      '"key2"': photoKey,
   }
   post2()
 }
-
-
-
 const URL2 =  "https://b5um800ra9.execute-api.ap-northeast-2.amazonaws.com/default/lambda-ecr" ;    
 
 function post2() {
@@ -221,13 +218,9 @@ function post2() {
       }).then(resp => console.log(resp))
       .catch(err => console.log(err))
        alert('Successfully send.');
-       console.log(send);
-       
+       console.log(send);     
 }
- 
 
-
- 
 function add_article_with_photo(albumName) {
     var files = document.getElementById("article_image").files;
     albumName = albumName.trim();
