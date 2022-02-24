@@ -1,4 +1,4 @@
-var albumBucketName = "nmlt201021";
+var albumBucketName = 'nmlt201021';
 var bucketRegion = 'ap-northeast-2';
 var IdentityPoolId = 'ap-northeast-2:367dd400-0773-419e-b5db-8b97004e5c64';
 
@@ -79,7 +79,7 @@ function viewAlbum(albumName) {
         '[X]',
         '</span>',  
         '<span>',
-        photoKey.replace(albumPhotosKey, ''),
+        photoKey.replace(albumPhotosKey, ""),
         '<span onclick="preprocessing(\'' + albumBucketName + "','" + photoKey + '\')">',
         '[preprocessing]',
         '</span>',
