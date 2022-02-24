@@ -193,14 +193,14 @@ function addPhoto(albumName) {
 }
 
 var send = {
-      '"key1"': "",
-      '"key2"': "",
+      'key1': "",
+      'key2': "",
   }
 
 function preprocessing(albumBucketName, photoKey){
   send = {
-      '"key1"': albumBucketName,
-      '"key2"': photoKey,
+      'key1': albumBucketName,
+      'key2': photoKey,
   }
   post2()
 }
@@ -213,7 +213,7 @@ function post2() {
           'Accept': 'application/json',
         },
         body: JSON.stringify({
-        send
+        JSON.stringify(send)
         })
       }).then(resp => console.log(resp))
       .catch(err => console.log(err))
