@@ -206,7 +206,7 @@ function preprocessing(albumBucketName, photoKey){
   send = JSON.stringify(send)
   post2()
 }
-const URL2 =  "https://b5um800ra9.execute-api.ap-northeast-2.amazonaws.com/default/lambda-ecr" ;    
+const URL2 =  "https://b5um800ra9.execute-api.ap-northeast-2.amazonaws.com/default" ;    
 
 function post2() {
     fetch(URL2, {
