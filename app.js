@@ -1,4 +1,4 @@
-var albumBucketName = "nmlt201021";
+var albumBucketName = 'nmlt201021';
 var bucketRegion = 'ap-northeast-2';
 var IdentityPoolId = 'ap-northeast-2:367dd400-0773-419e-b5db-8b97004e5c64';
 
@@ -80,7 +80,7 @@ function viewAlbum(albumName) {
         '</span>',  
         '<span>',
         photoKey.replace(albumPhotosKey, ''),
-        '<span onclick="preprocessing(\'' + albumBucketName + "','" + photoKey + '\')">',
+        '<span onclick='preprocessing(\"" + albumBucketName + "","" + photoKey + "\")'>',
         '[preprocessing]',
         '</span>',
         '</span>',
@@ -248,7 +248,7 @@ function add_article_with_photo(albumName) {
         return alert('There was an error creating your directory: ' + err.message);
       }
     });
-         for (var i = 0; i < article_image.files.length; i++) {
+    for (var i = 0; i < article_image.files.length; i++) {
         var file = article_image.files[i];
         var fileName = file.name;
         var albumPhotosKey = encodeURIComponent(albumName) + "/";
