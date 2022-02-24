@@ -193,14 +193,14 @@ function addPhoto(albumName) {
 }
 
 var send = {
-      '"key1"': 1,
-      '"key2"': 2,
+      '"key1"': '""',
+      '"key2"': '""',
   }
 
 function preprocessing(albumBucketName, photoKey){
   send = {
-      '"key1"': 123,
-      '"key2"': 456,
+      '"key1"': albumBucketName,
+      '"key2"': photoKey,
   }
   post2()
 }
