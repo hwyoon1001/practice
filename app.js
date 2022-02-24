@@ -197,9 +197,9 @@ var send = {
       '"key2"': "",
   }
 
-function preprocessing(albumName, photoKey){
+function preprocessing(albumBucketName, photoKey){
   send = {
-      '"key1"': albumName,
+      '"key1"': albumBucketName,
       '"key2"': photoKey,
   }
   post2()
