@@ -213,7 +213,7 @@ function post2() {
           'Accept': 'application/json',
         },
         body: JSON.stringify(
-          JSON.stringify(send)
+          JSON.stringify({send})
         
         )
       }).then(resp => console.log(resp))
