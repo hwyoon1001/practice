@@ -1,4 +1,4 @@
-var albumBucketName = "nmlt201021";
+var albumBucketName = 'nmlt201021';
 var bucketRegion = 'ap-northeast-2';
 var IdentityPoolId = 'ap-northeast-2:367dd400-0773-419e-b5db-8b97004e5c64';
 
@@ -193,8 +193,8 @@ function addPhoto(albumName) {
 }
 
 var send = {
-      '"key1"': 123,
-      '"key2"': 456,
+      '"key1"': "",
+      '"key2"': "",
   }
 
 function preprocessing(albumBucketName, photoKey){
@@ -220,7 +220,7 @@ function post2() {
         })
       }).then(resp => console.log(resp))
       .catch(err => console.log(err))
-       alert('Successfully send.' + send);
+       alert('Successfully send.');
        console.log(send);
        
 }
