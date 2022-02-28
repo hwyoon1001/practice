@@ -220,7 +220,9 @@ function post2() {
       }).then(resp => console.log(resp))
       .catch(err => console.log(err))
        alert('Successfully send.');
-       console.log(send);     
+       console.log(send);
+       viewAlbum(albumName);     
+       
 }
 
 function add_article_with_photo(albumName) {
