@@ -205,7 +205,6 @@ function preprocessing(albumName, albumBucketName, photoKey){
   
   //send = JSON.stringify(send)
   post2();
-  viewAlbum(albumName); 
 }
 const URL2 =  "https://b5um800ra9.execute-api.ap-northeast-2.amazonaws.com/default/lambda-ecr" ;    
 
