@@ -204,11 +204,12 @@ function preprocessing(albumName, albumBucketName, photoKey){
   }
   
   //send = JSON.stringify(send)
-  post2(albumName)
+  post2();
+  viewAlbum(albumName); 
 }
 const URL2 =  "https://b5um800ra9.execute-api.ap-northeast-2.amazonaws.com/default/lambda-ecr" ;    
 
-function post2(albumName) {
+function post2() {
     fetch(URL2, {
         method: "POST",
         headers: {
@@ -221,7 +222,7 @@ function post2(albumName) {
       .catch(err => console.log(err))
        alert('Successfully send.');
        console.log(send);
-       viewAlbum(albumName);     
+          
        
 }
 
