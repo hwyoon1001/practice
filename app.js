@@ -80,7 +80,7 @@ function viewAlbum(albumName) {
         '</span>',  
         '<span>',
         photoKey.replace(albumPhotosKey, ''),
-        '<span onclick="preprocessing(\'' + albumBucketName + "','" + photoKey + '\')">',
+        '<span onclick="preprocessing(\'' + albumName + "','"+ albumBucketName + "','" + photoKey + '\')">',
         '[preprocessing]',
         '</span>',
         '</span>',
@@ -197,18 +197,18 @@ var send = {
       'key2': "",
   }
 
-function preprocessing(albumBucketName, photoKey){
+function preprocessing(albumName, albumBucketName, photoKey){
   send = {
       'key1': albumBucketName,
       'key2': photoKey,
   }
   
   //send = JSON.stringify(send)
-  post2()
+  post2(albumName)
 }
 const URL2 =  "https://b5um800ra9.execute-api.ap-northeast-2.amazonaws.com/default/lambda-ecr" ;    
 
-function post2() {
+function post2(albumName) {
     fetch(URL2, {
         method: "POST",
         headers: {
